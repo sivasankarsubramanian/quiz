@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center; background:pink; font-family:Arial;">
+
+<h2>💖 Question 2</h2>
+<p>When we fight, what happens?</p>
+
+<form method="post" onsubmit="return checkAnswer()">
+
+<input type="radio" name="q2" value="a"> Silent mode activated 🤐<br>
+<input type="radio" name="q2" value="b"> Drama starts 🎭<br>
+<input type="radio" name="q2" value="c"> We end up laughing 😂<br><br>
+
+<button type="submit">Next ➡️</button>
+
+</form>
+
+<script>
+function checkAnswer() {
+    let answer = document.querySelector('input[name="q2"]:checked');
+
+    if (!answer) {
+        alert("Select an answer first 😏");
+        return false;
+    }
+
+    // ✅ Correct Answer = a
+    if (answer.value === "a") {
+        alert("Awww 😍 Perfect Bby");
+        return true; // go to next page
+    }
+
+    // ❌ Funny wrong answers
+    if (answer.value === "c") {
+        alert("Ayyoo over confidence ah 😎😂 try again!");
+        return false;
+    }
+
+    if (answer.value === "b") {
+        alert("Secret ah? 😜 caught you 😂 wrong answer!");
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>

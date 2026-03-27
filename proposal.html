@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Love 💖</title>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial;
+    background: black;
+    color: white;
+    text-align: center;
+}
+
+/* Center */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Typing */
+#text {
+    font-size: 22px;
+    min-height: 60px;
+}
+
+/* Slideshow */
+#slideshow {
+    display: none;
+}
+
+#slideshow img {
+    width: 250px;
+    border-radius: 15px;
+}
+
+/* Proposal */
+#proposal {
+    display: none;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.yes {
+    background: #ff4d6d;
+    box-shadow: 0 0 20px #ff4d6d;
+    color: white;
+}
+
+.no {
+    background: grey;
+    color: white;
+    position: absolute;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>💖 Hey My Love 💖</h1>
+
+<p id="text"></p>
+
+<div id="slideshow">
+    <img id="slide" src="/static/1.jpg">
+</div>
+
+<div id="proposal">
+    <h2>Will You Marry Me? 💍❤️</h2>
+    <button class="yes" onclick="yesClick()">YES 😍</button>
+    <button class="no" id="noBtn">NO 😏</button>
+</div>
+
+</div>
+
+<!-- 🎵 MUSIC -->
+<audio autoplay loop>
+  <source src="/static/song.mp3">
+</audio>
+
+<script>
+
+// 💬 Typing story
+let msg = "From the day I met you... you became my happiness ❤️";
+let i = 0;
+
+function typing(){
+    if(i < msg.length){
+        document.getElementById("text").innerHTML += msg.charAt(i);
+        i++;
+        setTimeout(typing, 60);
+    } else {
+        setTimeout(startSlideshow, 1000);
+    }
+}
+
+typing();
+
+// 📸 Slideshow
+let images = ["/static/1.jpg","/static/2.jpg","/static/3.jpg"];
+let index = 0;
+
+function startSlideshow(){
+    document.getElementById("slideshow").style.display = "block";
+
+    setInterval(() => {
+        index = (index + 1) % images.length;
+        document.getElementById("slide").src = images[index];
+    }, 2000);
+
+    setTimeout(showProposal, 6000);
+}
+
+// 💍 Show proposal
+function showProposal(){
+    document.getElementById("proposal").style.display = "block";
+}
+
+// 😈 NO button run
+let noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", function(){
+    let x = Math.random() * window.innerWidth - 100;
+    let y = Math.random() * window.innerHeight - 100;
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+// 💖 YES click
+function yesClick(){
+    document.body.innerHTML = "<h1 style='color:pink;'>💖 I Love You Forever 💖</h1>";
+    fireworks();
+}
+
+// 🎆 Fireworks
+function fireworks(){
+    setInterval(() => {
+        let f = document.createElement("div");
+        f.innerHTML = "✨";
+        f.style.position = "fixed";
+        f.style.left = Math.random() * 100 + "vw";
+        f.style.top = Math.random() * 100 + "vh";
+        f.style.fontSize = "30px";
+        document.body.appendChild(f);
+
+        setTimeout(()=>f.remove(),1000);
+    }, 200);
+}
+
+// 💓 Floating hearts
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.innerHTML = "💖";
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "0";
+    heart.style.fontSize = "20px";
+    heart.style.animation = "floatUp 5s linear";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),5000);
+}, 300);
+
+</script>
+
+<style>
+@keyframes floatUp {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-100vh);}
+}
+</style>
+
+</body>
+</html>

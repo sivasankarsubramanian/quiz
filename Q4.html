@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center; background:pink; font-family:Arial;">
+
+<h2>💖 Question 4</h2>
+<p>Our perfect date is?</p>
+
+<form method="post" onsubmit="return checkAnswer()">
+
+<input type="radio" name="q4" value="a"> Movie + chill 🎬<br>
+<input type="radio" name="q4" value="b"> Food + more food 🍗<br>
+<input type="radio" name="q4" value="c"> Just you & me talking 💬<br><br>
+
+<button type="submit">Next ➡️</button>
+
+</form>
+
+<script>
+function checkAnswer() {
+    let answer = document.querySelector('input[name="q4"]:checked');
+
+    if (!answer) {
+        alert("Select an answer first 😏");
+        return false;
+    }
+
+    // ✅ Correct Answer = c
+    if (answer.value === "c") {
+        alert("Awww 😍 correct!");
+        return true; // go to next page
+    }
+
+    // ❌ Funny wrong answers
+    if (answer.value === "a") {
+        alert("Ayyoo over confidence ah 😎😂 try again!");
+        return false;
+    }
+
+    if (answer.value === "b") {
+        alert("Secret ah? 😜 caught you 😂 wrong answer!");
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>

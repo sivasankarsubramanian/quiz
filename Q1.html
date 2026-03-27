@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Love 💖</title>
+
+<style>
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+    overflow: hidden;
+
+    /* 🎨 Animated Gradient */
+    background: linear-gradient(-45deg, #ff758c, #ff7eb3, #fad0c4, #ff9a9e);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+    0% {background-position: 0%;}
+    50% {background-position: 100%;}
+    100% {background-position: 0%;}
+}
+
+/* 💖 Card */
+.container {
+    background: rgba(255,255,255,0.2);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+/* Text */
+h2, p, label {
+    color: white;
+}
+
+label {
+    display: block;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Button */
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background: #ff4d6d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ff4d6d;
+}
+
+/* 💓 Floating hearts */
+.heart {
+    position: fixed;
+    bottom: 0;
+    font-size: 20px;
+    animation: floatUp 5s linear;
+}
+
+@keyframes floatUp {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-100vh);}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>💖 Question Adhi 💖</h2>
+
+<p>💌 (Her Name), நம்மல யாரு first love பண்ணாங்க? 😏</p>
+
+<form method="post" onsubmit="return checkAnswer()">
+
+<label><input type="radio" name="qX" value="a"> நான் தான் 😎</label>
+<label><input type="radio" name="qX" value="b"> நீ தான் 😜</label>
+<label><input type="radio" name="qX" value="c"> இருவரும் 💖</label>
+
+<br>
+<button type="submit">Next ➡️</button>
+
+</form>
+
+</div>
+
+<!-- 🎵 MUSIC -->
+<audio autoplay loop>
+  <source src="/static/song.mp3">
+</audio>
+
+<script>
+
+// 💓 Hearts animation
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.innerHTML = "💖";
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),5000);
+}, 300);
+
+// ✅ Answer logic
+function checkAnswer() {
+    let answer = document.querySelector('input[name="qX"]:checked');
+
+    if (!answer) {
+        alert("Answer select pannunga 😏");
+        return false;
+    }
+
+    if (answer.value === "c") {
+        alert("Correct da chellam 😍💖");
+        return true;
+    } else {
+        alert("Wrong 😂 try again!");
+        return false;
+    }
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center; background:pink; font-family:Arial;">
+
+<h2>💖 Question 8</h2>
+<p>Yaru romba Kova paduva? and who needs to go Mental Hospital!!</p>
+
+<form method="post" onsubmit="return checkAnswer()">
+
+<input type="radio" name="q8" value="a">Adhi<br>
+<input type="radio" name="q8" value="b">Siva<br>
+<input type="radio" name="q8" value="c"> <br>Sivashree(Both)<br>
+
+<button type="submit">Next ➡️</button>
+
+</form>
+
+<script>
+function checkAnswer() {
+    let answer = document.querySelector('input[name="q8"]:checked');
+
+    if (!answer) {
+        alert("Select an answer first 😏");
+        return false;
+    }
+
+    // ✅ Correct Answer = a
+    if (answer.value === "a") {
+        alert("Good Nalaikeh appointment vagiralam");
+        return true; // go to next page
+    }
+
+    // ❌ Funny wrong answers
+    if (answer.value === "b") {
+        alert("Patcha Mannu d Avan");
+        return false;
+    }
+
+    if (answer.value === "c") {
+        alert("Faaaaaaahhhhh");
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>

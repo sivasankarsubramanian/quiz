@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center; background:pink; font-family:Arial;">
+
+<h2>💖 Final Question</h2>
+<p>(A) Will you marry me? 💍 <br> (B) Ready to have two kids? 😂👶</p>
+
+<form action="/proposal" method="get" onsubmit="return checkAnswer()">
+
+<input type="radio" name="q10" value="a"> Yes (both 😍)<br>
+<input type="radio" name="q10" value="b"> No 😒<br>
+<input type="radio" name="q10" value="c"> Marriage ok 👍 kids later 😂<br><br>
+
+<button type="submit">Finish 💖</button>
+
+</form>
+
+<script>
+function checkAnswer() {
+    let answer = document.querySelector('input[name="q10"]:checked');
+
+    if (!answer) {
+        alert("Answer select pannunga 😏");
+        return false;
+    }
+
+    // ✅ Correct Answer
+    if (answer.value === "a") {
+        alert("Vadi vadi 😍 en cute pondati nee dhaan 💖 life full settle 💍");
+        return true; // go to proposal page
+    }
+
+    // ❌ Funny wrong answers
+    if (answer.value === "b") {
+        alert("Ayyayo 😭 ippadi solla koodathu… rethink pannunga 😂");
+        return false;
+    }
+
+    if (answer.value === "c") {
+        alert("Kids later ah? 😂 seri but answer full illa 😏 try again");
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>

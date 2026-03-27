@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center; background:pink; font-family:Arial;">
+
+<h2>💖 Question 9</h2>
+<p>If we stays in a private room what will you do?</p>
+
+<form method="post" onsubmit="return checkAnswer()">
+
+<input type="radio" name="q9" value="a">Watch Movies<br>
+<input type="radio" name="q9" value="b">Eat and Sleep<br>
+<input type="radio" name="q9" value="c"> <br>Talking about college<br>
+
+<button type="submit">Next ➡️</button>
+
+</form>
+
+<script>
+function checkAnswer() {
+    let answer = document.querySelector('input[name="q9"]:checked');
+
+    if (!answer) {
+        alert("Select an answer first 😏");
+        return false;
+    }
+
+    // ✅ Correct Answer = c
+    if (answer.value === "c") {
+        alert("Edhan d nee pannuva ");
+        return true; // go to next page
+    }
+
+    // ❌ Funny wrong answers
+    if (answer.value === "b") {
+        alert("Aasai Aasaiyai irukirathe edhu pol valdhidave");
+        return false;
+    }
+
+    if (answer.value === "a") {
+        alert("Ok we will Watch Fifty shades of gray");
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>
